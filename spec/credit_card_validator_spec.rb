@@ -3,7 +3,7 @@ require './src/credit_card_validator'
 
 
 describe '.initialize' do
-  it 'has a number' do
+  it 'with a credit card number' do
     pending
     card = CreditCardValidator.new("4408 0412 3456 7893")
     expect(card.num).to eq('4408 0412 3456 7893')
@@ -12,28 +12,28 @@ end
 
 describe '#type' do
   context "when the credit card number has a known type" do
-    it "returns the type of the credit card" do
+    it "returns Visa as a type of the credit card" do
       pending
       card = CreditCardValidator.new("4408 0412 3456 7893")
-      expect(card.type).to eq("Visa\n")
+      expect(card.type).to eq("Visa")
     end
 
-    it "returns the type of the credit card" do
+    it "returns MasterCard as a type of the credit card" do
       pending
       card = CreditCardValidator.new("5500 0000 0000 0004")
-      expect(card.type).to eq("MasterCard\n")
+      expect(card.type).to eq("MasterCard")
     end
 
-    it "returns the type of the credit card" do
+    it "returns AMEX as a type of the credit card" do
       pending
       card = CreditCardValidator.new("3400 0000 0000 009")
-      expect(card.type).to eq("AMEX\n")
+      expect(card.type).to eq("AMEX")
     end
 
-    it "returns the type of the credit card" do
+    it "returns Discover as a type of the credit card" do
       pending
       card = CreditCardValidator.new("6011 0000 0000 0004")
-      expect(card.type).to eq("Discover\n")
+      expect(card.type).to eq("Discover")
     end
   end
 
@@ -41,7 +41,7 @@ describe '#type' do
     it "returns Unknown" do
       pending
       card = CreditCardValidator.new("7011 0000 0000 0004")
-      expect(card.type).to eq("Unknown\n")
+      expect(card.type).to eq("Unknown")
     end
   end
 end
@@ -51,7 +51,7 @@ describe '#is_valid?' do
     it "returns true" do
       pending
       card = CreditCardValidator.new("4111 1111 1111 1111")
-      expect(card.is_valid?).to eq("true\n")
+      expect(card.is_valid?).to eq(true)
     end
   end
 
@@ -59,7 +59,7 @@ describe '#is_valid?' do
     it "returns false" do
       pending
       card = CreditCardValidator.new("7011 0000 0000 0004")
-      expect(card.is_valid?).to eq("false\n")
+      expect(card.is_valid?).to eq(false)
     end
   end
 end
