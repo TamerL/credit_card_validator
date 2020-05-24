@@ -1,0 +1,9 @@
+<h1>Create a new credit card</h1>
+
+<div class="row">
+  <%= form_with model: @credit_card, class: "nifty_form" do |f| %>
+    <label> Credit Card Number </label>
+    <%= f.text_field :num, placeholder: 'number', class: 'form-control' %>
+    <%= f.submit "Create", class: "btn btn-primary" %>
+<% end %>
+</div>
