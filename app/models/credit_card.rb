@@ -2,6 +2,7 @@
 
 # to check the credit card numbers find the type and validate the digits
 class CreditCard < ApplicationRecord
+  # add uniqueness to number
   def self.create_credit_card!(num)
     # validator = CreditCardValidator.new(params[:num])
     # type =  validator.type
