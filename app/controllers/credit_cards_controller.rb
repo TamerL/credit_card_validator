@@ -10,9 +10,17 @@ class CreditCardsController < ApplicationController
 
   def create
     # binding.pry
-    credit_card = CreditCard.create_credit_card!(credit_card_params[:num])
+    @credit_card = CreditCard.create_credit_card!(credit_card_params[:num])
+    if @credit_card.errors.empty?
+      flash.now.notice = "Credit Card was saved successfully."
     # credit_card = credit_card.create(num: credit_card_params[:num])
-    redirect_to '/'
+      redirect_to '/'
+    else
+      flash.alert = @credit_card.errors.messages[:base].last
+
+      # binding.pry
+      render :action => :new
+    end
   end
 
   def destroy
