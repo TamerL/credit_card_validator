@@ -12,14 +12,15 @@ class CreditCardsController < ApplicationController
     # binding.pry
     @credit_card = CreditCard.create_credit_card!(credit_card_params[:num])
     if @credit_card.errors.empty?
-      flash.now.notice = "Credit Card was saved successfully."
+      flash.notice = "Credit Card was saved successfully."
     # credit_card = credit_card.create(num: credit_card_params[:num])
       redirect_to '/'
     else
       flash.alert = @credit_card.errors.messages[:base].last
 
       # binding.pry
-      render :action => :new
+      # render :action => :new
+      redirect_to new_credit_card_url
     end
   end
 

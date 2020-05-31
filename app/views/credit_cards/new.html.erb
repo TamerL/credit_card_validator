@@ -1,13 +1,4 @@
 <h1>Create a new credit card</h1>
-
-<%= flash.inspect %>
-  <% flash.each do |key, value| %>
-    <% if key == "alert" %>
-      <div style="color:red", class="alert alert-<%= key %>"><%= value %></div>
-    <% else %>
-      <div style="color:green", class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
-<% end %>
 <div class="row">
   <%= form_with model: @credit_card, class: "nifty_form" do |f| %>
     <label> Credit Card Number </label>
@@ -15,3 +6,7 @@
     <%= f.submit "Create", class: "btn btn-primary" %>
   <% end %>
 </div>
+<br>
+<p>
+<%= link_to 'Back', credit_cards_path %>
+</p>

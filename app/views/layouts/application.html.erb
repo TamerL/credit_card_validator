@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CreditCardValidator</title>
+    <title>Update PBX ACL</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <%= image_tag("T_letter.jpg", width: '150px')%>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <div class="container">
+      <% flash.each do |key, value| %>
+        <% if key == "alert" %>
+          <div style="color:red", class="alert alert-<%= key %>"><%= value %></div>
+        <% else %>
+          <div style="color:green", class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+    <% end %>
   <body>
     <%= yield %>
   </body>

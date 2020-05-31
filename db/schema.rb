@@ -10,13 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_121528) do
+ActiveRecord::Schema.define(version: 2020_05_31_063719) do
+
+  create_table "card_types", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "credit_cards", force: :cascade do |t|
-    t.string "card_type"
-    t.integer "number", limit: 4
+    t.integer "card_type_id"
+    t.string "number", limit: 4
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["card_type_id"], name: "index_credit_cards_on_card_type_id"
     t.index ["number"], name: "index_credit_cards_on_number", unique: true
   end
 

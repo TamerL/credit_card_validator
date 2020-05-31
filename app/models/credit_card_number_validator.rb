@@ -59,7 +59,7 @@ class CreditCardNumberValidator
   end
 
   def unique?
-    unique = !CreditCard.pluck(:number).include?(num[-4..-1].to_i)
     # binding.pry
+    unique = !CreditCard.pluck(:number).include?(num[-4..-1])
   end
 end

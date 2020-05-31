@@ -13,7 +13,7 @@
     <% @credit_cards.each do |credit_card| %>
     <tr>
     <td><%= credit_card.number %></td>
-    <td><%= credit_card.card_type %></td>
+    <td><%= credit_card.card_type.name %></td>
     <td><%= button_to 'Delete', credit_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
     <% end %>
