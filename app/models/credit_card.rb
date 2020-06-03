@@ -6,6 +6,7 @@ class CreditCard < ApplicationRecord
   # skip_before_action :verify_authenticity_token
   # protect_from_forgery prepend: true, with: :exception
   belongs_to :card_type
+  belongs_to :user
   # add uniqueness to number
   validates :number, presence: true  # pls add database level constraints for the presence, also for the card_type
 

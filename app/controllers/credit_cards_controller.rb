@@ -1,7 +1,7 @@
 class CreditCardsController < ApplicationController
 
   def index
-    @credit_cards = CreditCard.all
+    @credit_cards = CreditCard.eager_load(:card_type)
   end
 
   def new
@@ -28,7 +28,7 @@ class CreditCardsController < ApplicationController
     # binding.pry
     CreditCard.find(params[:id]).destroy
     # redirect_to '/'
-    redirect_to credit_cards_path
+    redirect_to '/'
   end
 
 

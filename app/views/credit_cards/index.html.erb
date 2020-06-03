@@ -4,6 +4,7 @@
     <tr>
       <th>Card Last 4 digits</th>
       <th>Card Type</th>
+      <th>Card Owner</th>
       <th>Actions</th>
       <% end %>
     </tr>
@@ -14,6 +15,7 @@
     <tr>
     <td><%= credit_card.number %></td>
     <td><%= credit_card.card_type.name %></td>
+    <td><%= credit_card.user.name %></td>
     <td><%= button_to 'Delete', credit_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
     <% end %>
@@ -22,5 +24,5 @@
 
 <br>
 <p>
-  <%= link_to "Add", new_credit_card_url(@credit_card) %>
+  <%= link_to "Add", new_user_credit_card_url(@credit_card) %>
 </p>

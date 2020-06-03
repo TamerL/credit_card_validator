@@ -1,0 +1,37 @@
+<% unless @users.empty? %>
+<table>
+  <thead>
+    <tr>
+      <th>User Name</th>
+      <th>Card Type</th>
+      <th>Card Number</th>
+      <th>Actions</th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <!-- the column names of this view should the same column names as in the DB -->
+  <tbody>
+    <% @users.each do |user| %>
+      <% user.credit_cards.each do |credit_card| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td>
+          <%= credit_card.card_type.name %>
+        </td>
+        <td>
+          <%= credit_card.number %>
+        </td>
+
+        <td><%= button_to 'Delete', credit_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+
+  <% end %>
+</tbody>
+</table>
+
+<br>
+<p>
+  <%= link_to "Add", new_user_url(@user) %>
+</p>
